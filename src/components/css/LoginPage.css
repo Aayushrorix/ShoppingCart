@@ -1,0 +1,66 @@
+.login-form-div{
+    text-align: center;
+}
+
+.login-form{
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    background-color: rgba(235, 233, 231, 0.155);
+    padding: 50px;
+    border-radius: 20px;
+    margin: 10%;
+}
+
+.form-heading{
+    margin-bottom: 40px;
+    font-size: 50px;
+    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-form-name-label{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: large;
+    font-weight:300;
+    color: rgb(4, 2, 10);
+}
+
+.input-box{
+    background-color: rgba(235, 233, 231, 0.258);
+    border:  0.5px solid black ;
+    border-radius: 5px;
+    padding: 10px 40px;
+}
+
+.login-btn{
+    background-color: rgba(196, 223, 23, 0.56);
+    border: none;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 8px 20px;
+    border-radius: 3px;
+}
+
+.login-btn:hover{
+    background-color: rgba(196, 223, 23, 0.677);
+    border: none;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-bottom: 25px;
+    padding: 8px 20px;
+    border-radius: 3px;
+}
+
+.login-btn:active{
+    background-color: rgba(196, 223, 23, 0.988);
+    border: none;
+    margin-top: 25px;
+    padding: 8px 20px;
+    border-radius: 3px;
+}
+
+.signup-link{
+    color: rgb(27, 221, 182);
+}

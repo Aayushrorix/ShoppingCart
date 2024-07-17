@@ -1,0 +1,12 @@
+body {
+    /* position: relative; */
+    /* margin: 0;
+    padding: 0; */
+    background-image: url('./assets/loginpage_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    /* min-height: 100vh; */
+    min-height:96vh;
+    /* text-align: center;
+    align-content: center; */
+}
