@@ -1,0 +1,16 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+    gap: 20px;
+}
+
+.grid-item{
+    text-align: center;
+    border: 1px solid black;
+    padding: auto;
+}
+
+.product-img{
+    height: 150px;
+    width: 200px;
+}

@@ -1,0 +1,35 @@
+.div-cart-main {
+    background-image: url('src/assets/cback.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height:96vh;
+}
+
+.div-product{
+    border: 1px solid black;
+    width: 25%;
+    margin: 5px;
+    /* text-align: center; */
+}
+
+.product-img{
+    height: 50px;
+    width: 75px;
+}
+
+/* .grid-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.grid-item{
+    text-align: center;
+    border: 1px solid black;
+    padding: auto;
+}
+
+.product-img{
+    height: 150px;
+    width: 200px;
+} */

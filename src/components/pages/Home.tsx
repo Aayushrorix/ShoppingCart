@@ -1,45 +1,35 @@
 import '../css/Home.css'
 import { useNavigate } from "react-router-dom"
-import { useLogoutUserMutation } from "../../state/slices/ShoppingCartSlices"
 import { useEffect } from 'react'
-
+import Header from '../Header'
+import Products from '../Products'
 
 function Home() {
 
-  const navigate = useNavigate()
-  const [logoutUser] = useLogoutUserMutation()
-  const token = localStorage.getItem('token')
+    const navigate = useNavigate()
 
-  useEffect(()=>{
-    if(!token){
-      navigate('/login')
-    }
-  },[token])
+    const token = localStorage.getItem('token')
 
-  function goLogin(){
-    navigate('/login')
-  }
+    useEffect(()=>{
+        if(!token){
+        navigate('/login')
+        }
+    },[token])
 
-  function userLogout(){
-    logoutUser()
-    localStorage.removeItem('token')
-  }
+    return (
+        <div className="div-home-main">
+        {localStorage.getItem('token') && 
+        <>
+            <Header/>
 
+            <Products/>
+        </>
+        }
 
-  return (
-    <div className="div-home-main">
-      {localStorage.getItem('token') && 
-      <>
-        <div>Logged In</div>
-
-        <button onClick={userLogout}>Logout</button>
-      </>
-      }
-
-      {!localStorage.getItem('token') && 
-      <></>}
-    </div>
-  )
+        {!localStorage.getItem('token') && 
+        <></>}
+        </div>
+    )
 }
 
 export default Home

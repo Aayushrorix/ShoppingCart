@@ -19,6 +19,7 @@ type LoginResponse = {
     "data": LoginData,
 }
 
+
 export const shoppingApi = createApi({
     baseQuery : fetchBaseQuery({
         baseUrl: 'http://127.0.0.1:8000/',
@@ -41,15 +42,67 @@ export const shoppingApi = createApi({
             }),
             invalidatesTags: ["User"],
         }),
-        logoutUser: builder.mutation<any,void>({
-            query: () => ({
+        logoutUser: builder.mutation<any,any>({
+            query: (header) => ({
                 url: '/auth/logout',
-                method: 'POST'
+                method: 'POST',
+                headers: header,
             }),
             invalidatesTags: ["User"],
+        }),
+        getCartCount: builder.query<any,any>({
+            query: (header) => ({
+                url: '/cart/get_cart_count',
+                method: "GET",
+                headers: header,
+            }),
+            providesTags: ["Cart"],
+        }),
+        getProducts: builder.query<any,any>({
+            query: (header) => ({
+                url: '/product/all_products',
+                method: 'GET',
+                headers: header,
+            }),
+            providesTags: ["Products"],
+        }),
+        addToCart: builder.mutation<any,any>({
+            query: (body:any) => ({
+                url: '/cart/add_to_cart',
+                method: 'POST',
+                body: body.productDetail,
+                headers: body.header,
+            }),
+            invalidatesTags: ["Cart"],
+        }),
+        removeFromCart: builder.mutation<any,any>({
+            query: (body:any) => ({
+                url: '/cart/remove_from_cart',
+                method: 'POST',
+                body: body.productDetail,
+                headers: body.header,
+            }),
+            invalidatesTags: ["Cart"],
+        }),
+        getCartProducts: builder.query<any,any>({
+            query: (header) => ({
+                url: '/cart/get_cart_products',
+                method: 'GET',
+                headers: header,
+            }),
+            providesTags: ["Cart"],
+        }),
+        reduceFromCart: builder.mutation<any,any>({
+            query: (body:any) => ({
+                url: '/cart/reduce_from_cart',
+                method: 'POST',
+                body: body.productDetail,
+                headers: body.header,
+            }),
+            invalidatesTags: ["Cart"],
         }),
 
     })
 })
 
-export const { useSignUpUserMutation , useLoginUserMutation, useLogoutUserMutation } = shoppingApi as any;
+export const { useSignUpUserMutation , useLoginUserMutation, useLogoutUserMutation, useGetCartCountQuery, useGetProductsQuery, useAddToCartMutation, useRemoveFromCartMutation, useGetCartProductsQuery, useReduceFromCartMutation } = shoppingApi as any;

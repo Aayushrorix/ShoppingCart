@@ -1,0 +1,27 @@
+.header-main{
+    background-color:rgb(205 180 210);
+    height: 40px;
+
+}
+
+.btn-logout{
+    float: right;
+    margin: 4px;
+    background-color: rgb(104, 104, 212);
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.cart-count{
+    float: right;
+    margin-right: 10px;
+    background-color: rgb(68, 152, 37);
+    border-radius: 50px;
+    margin-left: -2px;
+}
+
+.cart-icon{
+    height: 40px;
+    float: right;
+}

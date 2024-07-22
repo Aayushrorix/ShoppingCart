@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import '../css/LoginPage.css'
 import { useNavigate } from 'react-router-dom'
 import { useLoginUserMutation } from '../../state/slices/ShoppingCartSlices'
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 function LoginPage() {
@@ -11,6 +11,7 @@ function LoginPage() {
     const loginDetails:any = useSelector((state:any) => state)
     // const [res,setRes] = useState<any>()
     const [token,setToken] = useState(localStorage.getItem('token'))
+    const [errMsg, setErrMsg] = useState('')
 
     useEffect(()=>{
         console.log(loginDetails)
@@ -51,8 +52,14 @@ function LoginPage() {
             )
             // setRes(nres)
             console.log("===> Login Details => ",loginDetails,"data =>",nres)
+            if(nres.error){
+                console.log(nres.error.data)
+                setErrMsg(nres.error.data.message)
+            }
+
             if(nres.data.data.token){
                 localStorage.setItem('token',nres.data.data.token)
+                setToken(nres.data.data.token)
             }
             resetForm();
             navigate('/')
@@ -77,6 +84,10 @@ function LoginPage() {
 
                     <div className="input-form-name-label">Password</div>
                     <input className='input-box' type='password' name='password' placeholder='Password' onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+
+                    {errMsg && 
+                    <div style={{color:'rgb(14 7 6)'}}>{errMsg}</div>
+                    }
 
                     <div>
                         <button className='login-btn' type='submit'>Login</button>
