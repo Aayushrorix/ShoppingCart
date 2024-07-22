@@ -2,10 +2,22 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import '../css/SignUpPage.css'
 import { useNavigate } from 'react-router-dom'
+import { useSignUpUserMutation } from '../../state/slices/ShoppingCartSlices'
+import { useEffect, useState } from 'react'
 
 function SignUpPage() {
 
     const navigate = useNavigate()
+
+    // const [signUpUser, { isLoading: signUpLoading, isSuccess:  signUpSuccess}] = useSignUpUserMutation();
+    const [signUpUser] = useSignUpUserMutation();
+    const [token,setToken] = useState(localStorage.getItem('token'))
+
+    useEffect(()=>{
+        if(token){
+            navigate('/')
+        }
+    },[token])
 
     const formik = useFormik({
         initialValues: {
@@ -26,7 +38,16 @@ function SignUpPage() {
         }),
         onSubmit: (values, { resetForm }) => {
             console.log("Form Submitted", values);
+            signUpUser(
+                {
+                    firstName:values.firstName,
+                    lastName: values.lastName,
+                    email: values.email,
+                    password: values.password
+                }
+            )
             resetForm();
+            navigate('/login')
         }
   })
 

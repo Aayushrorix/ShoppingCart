@@ -2,10 +2,33 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import '../css/LoginPage.css'
 import { useNavigate } from 'react-router-dom'
+import { useLoginUserMutation } from '../../state/slices/ShoppingCartSlices'
+import { useSelector,useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 function LoginPage() {
 
+    const loginDetails:any = useSelector((state:any) => state)
+    // const [res,setRes] = useState<any>()
+    const [token,setToken] = useState(localStorage.getItem('token'))
+
+    useEffect(()=>{
+        console.log(loginDetails)
+    },[loginDetails])
+
     const navigate = useNavigate()
+
+    console.log(localStorage.getItem('token'))
+
+    useEffect(()=>{
+        if(token){
+            navigate('/')
+        }
+    },[token])
+    
+
+    // const [loginUser, { isLoading: loginLoading, isSuccess:  loginSuccess}] = useLoginUserMutation();
+    const [loginUser] = useLoginUserMutation();
 
     const formik = useFormik({
         initialValues: {
@@ -18,9 +41,21 @@ function LoginPage() {
             password: Yup.string()
             .required("Password is Required"),
         }),
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: async (values, { resetForm }) => {
             console.log("Form Submitted", values);
+            const nres = await loginUser(
+                {
+                    email:values.email,
+                    password:values.password
+                }
+            )
+            // setRes(nres)
+            console.log("===> Login Details => ",loginDetails,"data =>",nres)
+            if(nres.data.data.token){
+                localStorage.setItem('token',nres.data.data.token)
+            }
             resetForm();
+            navigate('/')
         }
     })
 
