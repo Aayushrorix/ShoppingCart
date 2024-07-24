@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { useGetCartProductsQuery, useAddToCartMutation, useReduceFromCartMutation } from '../../state/slices/ShoppingCartSlices';
 import '../css/Cart.css'
 import Header from '../Header'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { CartData } from '../../models/shoppingModels';
 
 function Cart() {
 
-    const [cartProducts, setCartProducts] = useState<any[]>([])
+    const [cartProducts, setCartProducts] = useState<CartData[]>([])
     const [cartTotalPrice, setCartTotalPrice] = useState<number>(0)
     const [cartCount, setCartCount] = useState<number>(0)
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [addToCart] = useAddToCartMutation()
     const [reduceFromCart] = useReduceFromCartMutation()
@@ -21,6 +22,15 @@ function Cart() {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
     );
+
+    const token = localStorage.getItem('token')
+
+    useEffect(()=>{
+        if(!token){
+        navigate('/login')
+        }
+    },[token])
+
 
     useEffect(()=>{
         if(allcartProducts){
