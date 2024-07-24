@@ -11,6 +11,7 @@
     margin: 5px;
     border: none;
     border-radius: 5px;
+    float: left;
 }
 
 .btn-logout{

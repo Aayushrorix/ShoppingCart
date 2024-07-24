@@ -1,6 +1,11 @@
 body {
-    background-image: url('./assets/mainback.png');
+    /* background-image: url('./assets/mainback.png');
     background-size: cover;
     background-position: center;
-    min-height:96vh;
+    min-height:96vh; */
+    text-align: center;
+    background-image: url(src/assets/loginpage_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 96vh;
 }
