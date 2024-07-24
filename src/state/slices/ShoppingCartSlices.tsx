@@ -19,17 +19,17 @@ type LoginResponse = {
     "data": LoginData,
 }
 
-type Header = {
-    "Content-Type":string,
-    "Authorization":string,
-}
+// type Header = {
+//     "Content-Type":string,
+//     "Authorization":string,
+// }
 
 type ProductDetail = {
     "pid":string,
 }
 
 type Body = {
-    "header":Header,
+    // "header":Header,
     "productDetail":ProductDetail,
 }
 
@@ -37,6 +37,13 @@ type Body = {
 export const shoppingApi = createApi({
     baseQuery : fetchBaseQuery({
         baseUrl: 'http://127.0.0.1:8000/',
+        prepareHeaders: (headers) => {
+            const token: string | null = localStorage.getItem('token')
+            if (token) {
+                headers.set("authorization", `Bearer ${token}`);
+            }
+            return headers;
+        }
     }),
     tagTypes: ["User","Products","Cart"],
     endpoints: (builder) => ({
@@ -56,27 +63,27 @@ export const shoppingApi = createApi({
             }),
             invalidatesTags: ["User"],
         }),
-        logoutUser: builder.mutation<any,Header>({
-            query: (header) => ({
+        logoutUser: builder.mutation<any,void>({
+            query: () => ({
                 url: '/auth/logout',
                 method: 'POST',
-                headers: header,
+                // headers: header,
             }),
             invalidatesTags: ["User"],
         }),
-        getCartCount: builder.query<any,Header>({
-            query: (header) => ({
+        getCartCount: builder.query<any,void>({
+            query: () => ({
                 url: '/cart/get_cart_count',
                 method: "GET",
-                headers: header,
+                // headers: header,
             }),
             providesTags: ["Cart"],
         }),
-        getProducts: builder.query<any,Header>({
-            query: (header) => ({
+        getProducts: builder.query<any,void>({
+            query: () => ({
                 url: '/product/all_products',
                 method: 'GET',
-                headers: header,
+                // headers: header,
             }),
             providesTags: ["Products"],
         }),
@@ -85,7 +92,7 @@ export const shoppingApi = createApi({
                 url: '/cart/add_to_cart',
                 method: 'POST',
                 body: body.productDetail,
-                headers: body.header,
+                // headers: body.header,
             }),
             invalidatesTags: ["Cart"],
         }),
@@ -94,15 +101,15 @@ export const shoppingApi = createApi({
                 url: '/cart/remove_from_cart',
                 method: 'POST',
                 body: body.productDetail,
-                headers: body.header,
+                // headers: body.header,
             }),
             invalidatesTags: ["Cart"],
         }),
-        getCartProducts: builder.query<any,Header>({
-            query: (header) => ({
+        getCartProducts: builder.query<any,void>({
+            query: () => ({
                 url: '/cart/get_cart_products',
                 method: 'GET',
-                headers: header,
+                // headers: header,
             }),
             providesTags: ["Cart"],
         }),
@@ -111,7 +118,7 @@ export const shoppingApi = createApi({
                 url: '/cart/reduce_from_cart',
                 method: 'POST',
                 body: body.productDetail,
-                headers: body.header,
+                // headers: body.header,
             }),
             invalidatesTags: ["Cart"],
         }),

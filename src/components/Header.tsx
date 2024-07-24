@@ -10,10 +10,10 @@ function Header() {
     const [cartCount, setCartCount] = useState<number>(0)
 
     const { data:count } = useGetCartCountQuery(
-        {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
     );
     
     useEffect(()=>{
@@ -24,10 +24,10 @@ function Header() {
 
     function userLogout(){
         logoutUser(
-            {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-            }
+            // {
+            //     'Content-Type': 'application/json',
+            //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+            // }
         )
         localStorage.removeItem('token')
         navigate('/login')

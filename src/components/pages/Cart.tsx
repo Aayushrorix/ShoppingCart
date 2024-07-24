@@ -16,10 +16,10 @@ function Cart() {
     const [reduceFromCart] = useReduceFromCartMutation()
 
     const { data:allcartProducts } = useGetCartProductsQuery(
-        {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
     );
 
     const token = localStorage.getItem('token')
@@ -41,25 +41,25 @@ function Cart() {
     },[allcartProducts])
 
     function clickAddToCart(pid:string){
-        const header = {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // const header = {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
         const productDetail = {
             pid: pid,
         }
-        addToCart({header:header,productDetail:productDetail})
+        addToCart({productDetail:productDetail})
     }
 
     function clickReduceToCart(pid:string){
-        const header = {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // const header = {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
         const productDetail = {
             pid: pid,
         }
-        reduceFromCart({header:header,productDetail:productDetail})
+        reduceFromCart({productDetail:productDetail})
     }
 
     return (

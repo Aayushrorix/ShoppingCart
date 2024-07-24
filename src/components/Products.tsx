@@ -13,10 +13,10 @@ function Products() {
     const navigate = useNavigate()
 
     const { data:count } = useGetCartCountQuery(
-        {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
     );
     
     useEffect(()=>{
@@ -30,10 +30,10 @@ function Products() {
     },[count])
 
     const { data:allproducts } = useGetProductsQuery(
-        {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
     );
 
     const [addToCart] = useAddToCartMutation()
@@ -52,10 +52,10 @@ function Products() {
     },[allproducts])
 
     const { data:allcartProducts } = useGetCartProductsQuery(
-        {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
     );
 
     useEffect(()=>{
@@ -79,25 +79,25 @@ function Products() {
 
 
     function clickAddToCart(pid:string){
-        const header = {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // const header = {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
         const productDetail = {
             pid: pid,
         }
-        addToCart({header:header,productDetail:productDetail})
+        addToCart({productDetail:productDetail})
     }
 
     function clickRemoveFormCart(pid:string){
-        const header = {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
+        // const header = {
+        //     'Content-Type': 'application/json',
+        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+        // }
         const productDetail = {
             pid: pid,
         }
-        removeFromCart({header:header,productDetail:productDetail})
+        removeFromCart({productDetail:productDetail})
     }
 
 
