@@ -10,9 +10,7 @@ function SignUpPage() {
 
     const navigate = useNavigate()
 
-    // const [signUpUser, { isLoading: signUpLoading, isSuccess:  signUpSuccess}] = useSignUpUserMutation();
     const [signUpUser] = useSignUpUserMutation();
-    // const [token,setToken] = useState(localStorage.getItem('token'))
     const token= localStorage.getItem('token')
 
     useEffect(()=>{

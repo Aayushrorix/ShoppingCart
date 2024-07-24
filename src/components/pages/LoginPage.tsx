@@ -8,14 +8,8 @@ import { useEffect, useState } from 'react'
 
 function LoginPage() {
 
-    // const loginDetails:any = useSelector((state:any) => state)
-    // const [res,setRes] = useState<any>()
     const [token,setToken] = useState(localStorage.getItem('token'))
     const [errMsg, setErrMsg] = useState('')
-
-    // useEffect(()=>{
-    //     console.log(loginDetails)
-    // },[loginDetails])
 
     const navigate = useNavigate()
 
@@ -27,8 +21,6 @@ function LoginPage() {
         }
     },[token])
     
-
-    // const [loginUser, { isLoading: loginLoading, isSuccess:  loginSuccess}] = useLoginUserMutation();
     const [loginUser] = useLoginUserMutation();
 
     const formik = useFormik({
@@ -50,8 +42,6 @@ function LoginPage() {
                     password:values.password
                 }
             )
-            // setRes(nres)
-            // console.log("===> Login Details => ",loginDetails,"data =>",nres)
             if(nres.error){
                 console.log(nres.error.data)
                 setErrMsg(nres.error.data.message)
@@ -73,7 +63,6 @@ function LoginPage() {
 
     return (
         <>
-            {/* <div>LoginPage</div> */}
 
             <div className='login-form-div'>
                 <form className='login-form' onSubmit={formik.handleSubmit}>

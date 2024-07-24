@@ -11,12 +11,10 @@ function Header() {
 
     const { data:count } = useGetCartCountQuery(
         {
-            // Define your headers here
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
     );
-    // console.log("data====> ",data)
     
     useEffect(()=>{
         if(count){
@@ -27,7 +25,6 @@ function Header() {
     function userLogout(){
         logoutUser(
             {
-                // Define your headers here
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             }
@@ -44,9 +41,6 @@ function Header() {
             <span className='cart-count'>{cartCount}</span>
             }
             <span>
-                {/* <a href='http://localhost:5173/cart'>
-                <img className='cart-icon' src='src/assets/cart.png' alt='Cart'></img>
-                </a> */}
                 <img className='cart-icon' onClick={()=>navigate('/cart')} src='src/assets/cart.png' alt='Cart'></img>
             </span>
         </div>

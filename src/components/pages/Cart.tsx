@@ -17,7 +17,6 @@ function Cart() {
 
     const { data:allcartProducts } = useGetCartProductsQuery(
         {
-            // Define your headers here
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
@@ -61,7 +60,6 @@ function Cart() {
             pid: pid,
         }
         reduceFromCart({header:header,productDetail:productDetail})
-        // navigate('/cart')
     }
 
     return (

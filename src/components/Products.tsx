@@ -14,12 +14,10 @@ function Products() {
 
     const { data:count } = useGetCartCountQuery(
         {
-            // Define your headers here
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
     );
-    // console.log("data====> ",data)
     
     useEffect(()=>{
         if(count){
@@ -33,7 +31,6 @@ function Products() {
 
     const { data:allproducts } = useGetProductsQuery(
         {
-            // Define your headers here
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
@@ -41,7 +38,6 @@ function Products() {
 
     const [addToCart] = useAddToCartMutation()
     const [removeFromCart] = useRemoveFromCartMutation()
-    // const [cartTotalPrice, setCartTotalPrice] = useState<number>(0)
 
     useEffect(()=>{
         if(allproducts){
@@ -57,7 +53,6 @@ function Products() {
 
     const { data:allcartProducts } = useGetCartProductsQuery(
         {
-            // Define your headers here
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
@@ -71,7 +66,6 @@ function Products() {
             }
           console.log("Prouducts : ",allcartProducts)
           setCartProducts(allcartProducts.data.cartData)
-        //   setCartTotalPrice(allcartProducts.data.cartTotalPrice)
         }
     },[allcartProducts])
 

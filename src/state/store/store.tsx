@@ -7,12 +7,10 @@ import { shoppingApi } from "../slices/ShoppingCartSlices";
 
 export const rtkQueryErrorLogger: any =
   (api: any) => (next:any) => (action:any) => {
-    // isRejectedWithValue Or isRejected
-    
+      console.log(api)
       if (action.payload?.status === 401) {
         console.log("error auth");
         localStorage.clear()
-        // navigate('/login')
       }
     
 
