@@ -3,7 +3,8 @@ import * as Yup from 'yup'
 import '../css/SignUpPage.css'
 import { useNavigate } from 'react-router-dom'
 import { useSignUpUserMutation } from '../../state/slices/ShoppingCartSlices'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 
 function SignUpPage() {
 
@@ -11,7 +12,8 @@ function SignUpPage() {
 
     // const [signUpUser, { isLoading: signUpLoading, isSuccess:  signUpSuccess}] = useSignUpUserMutation();
     const [signUpUser] = useSignUpUserMutation();
-    const [token,setToken] = useState(localStorage.getItem('token'))
+    // const [token,setToken] = useState(localStorage.getItem('token'))
+    const token= localStorage.getItem('token')
 
     useEffect(()=>{
         if(token){

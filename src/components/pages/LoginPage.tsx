@@ -3,19 +3,19 @@ import * as Yup from 'yup'
 import '../css/LoginPage.css'
 import { useNavigate } from 'react-router-dom'
 import { useLoginUserMutation } from '../../state/slices/ShoppingCartSlices'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 function LoginPage() {
 
-    const loginDetails:any = useSelector((state:any) => state)
+    // const loginDetails:any = useSelector((state:any) => state)
     // const [res,setRes] = useState<any>()
     const [token,setToken] = useState(localStorage.getItem('token'))
     const [errMsg, setErrMsg] = useState('')
 
-    useEffect(()=>{
-        console.log(loginDetails)
-    },[loginDetails])
+    // useEffect(()=>{
+    //     console.log(loginDetails)
+    // },[loginDetails])
 
     const navigate = useNavigate()
 
@@ -51,7 +51,7 @@ function LoginPage() {
                 }
             )
             // setRes(nres)
-            console.log("===> Login Details => ",loginDetails,"data =>",nres)
+            // console.log("===> Login Details => ",loginDetails,"data =>",nres)
             if(nres.error){
                 console.log(nres.error.data)
                 setErrMsg(nres.error.data.message)

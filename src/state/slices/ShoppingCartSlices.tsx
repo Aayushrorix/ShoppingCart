@@ -19,6 +19,20 @@ type LoginResponse = {
     "data": LoginData,
 }
 
+type Header = {
+    "Content-Type":string,
+    "Authorization":string,
+}
+
+type ProductDetail = {
+    "pid":string,
+}
+
+type Body = {
+    "header":Header,
+    "productDetail":ProductDetail,
+}
+
 
 export const shoppingApi = createApi({
     baseQuery : fetchBaseQuery({
@@ -42,7 +56,7 @@ export const shoppingApi = createApi({
             }),
             invalidatesTags: ["User"],
         }),
-        logoutUser: builder.mutation<any,any>({
+        logoutUser: builder.mutation<any,Header>({
             query: (header) => ({
                 url: '/auth/logout',
                 method: 'POST',
@@ -50,7 +64,7 @@ export const shoppingApi = createApi({
             }),
             invalidatesTags: ["User"],
         }),
-        getCartCount: builder.query<any,any>({
+        getCartCount: builder.query<any,Header>({
             query: (header) => ({
                 url: '/cart/get_cart_count',
                 method: "GET",
@@ -58,7 +72,7 @@ export const shoppingApi = createApi({
             }),
             providesTags: ["Cart"],
         }),
-        getProducts: builder.query<any,any>({
+        getProducts: builder.query<any,Header>({
             query: (header) => ({
                 url: '/product/all_products',
                 method: 'GET',
@@ -66,7 +80,7 @@ export const shoppingApi = createApi({
             }),
             providesTags: ["Products"],
         }),
-        addToCart: builder.mutation<any,any>({
+        addToCart: builder.mutation<any,Body>({
             query: (body:any) => ({
                 url: '/cart/add_to_cart',
                 method: 'POST',
@@ -75,7 +89,7 @@ export const shoppingApi = createApi({
             }),
             invalidatesTags: ["Cart"],
         }),
-        removeFromCart: builder.mutation<any,any>({
+        removeFromCart: builder.mutation<any,Body>({
             query: (body:any) => ({
                 url: '/cart/remove_from_cart',
                 method: 'POST',
@@ -84,7 +98,7 @@ export const shoppingApi = createApi({
             }),
             invalidatesTags: ["Cart"],
         }),
-        getCartProducts: builder.query<any,any>({
+        getCartProducts: builder.query<any,Header>({
             query: (header) => ({
                 url: '/cart/get_cart_products',
                 method: 'GET',
@@ -92,7 +106,7 @@ export const shoppingApi = createApi({
             }),
             providesTags: ["Cart"],
         }),
-        reduceFromCart: builder.mutation<any,any>({
+        reduceFromCart: builder.mutation<any,Body>({
             query: (body:any) => ({
                 url: '/cart/reduce_from_cart',
                 method: 'POST',

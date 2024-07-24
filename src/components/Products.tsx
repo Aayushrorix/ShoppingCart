@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useAddToCartMutation,useGetCartCountQuery,useGetCartProductsQuery ,useGetProductsQuery, useRemoveFromCartMutation } from "../state/slices/ShoppingCartSlices";
 import './css/Products.css'
 import { useNavigate } from "react-router-dom";
+import { CartData, Productsp } from "../models/shoppingModels";
 
 function Products() {
 
-    const [products, setProducts] = useState<any[]>([])
-    const [cartProducts, setCartProducts] = useState<any[]>([])
+    const [products, setProducts] = useState<Productsp[]>([])
+    const [cartProducts, setCartProducts] = useState<CartData[]>([])
     const [cartProductIds, setCartProductIds] = useState<string[]|null>()
     const [cartCount, setCartCount] = useState<number>(0)
     const navigate = useNavigate()

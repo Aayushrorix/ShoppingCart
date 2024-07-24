@@ -26,3 +26,13 @@ export interface CartData{
     product: Product;
     productCart: ProductCart;
 }
+
+export interface Productsp{
+    id:string;
+    pid:string;
+    name:string;
+    image:string;
+    price:number;
+    created_at:string;
+    updated_at:string;
+}
