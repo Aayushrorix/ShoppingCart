@@ -19,17 +19,11 @@ type LoginResponse = {
     "data": LoginData,
 }
 
-// type Header = {
-//     "Content-Type":string,
-//     "Authorization":string,
-// }
-
 type ProductDetail = {
     "pid":string,
 }
 
 type Body = {
-    // "header":Header,
     "productDetail":ProductDetail,
 }
 
@@ -75,7 +69,6 @@ export const shoppingApi = createApi({
             query: () => ({
                 url: '/cart/get_cart_count',
                 method: "GET",
-                // headers: header,
             }),
             providesTags: ["Cart"],
         }),
@@ -83,7 +76,6 @@ export const shoppingApi = createApi({
             query: () => ({
                 url: '/product/all_products',
                 method: 'GET',
-                // headers: header,
             }),
             providesTags: ["Products"],
         }),
@@ -92,7 +84,6 @@ export const shoppingApi = createApi({
                 url: '/cart/add_to_cart',
                 method: 'POST',
                 body: body.productDetail,
-                // headers: body.header,
             }),
             invalidatesTags: ["Cart"],
         }),
@@ -101,7 +92,6 @@ export const shoppingApi = createApi({
                 url: '/cart/remove_from_cart',
                 method: 'POST',
                 body: body.productDetail,
-                // headers: body.header,
             }),
             invalidatesTags: ["Cart"],
         }),
@@ -109,7 +99,6 @@ export const shoppingApi = createApi({
             query: () => ({
                 url: '/cart/get_cart_products',
                 method: 'GET',
-                // headers: header,
             }),
             providesTags: ["Cart"],
         }),
@@ -118,7 +107,6 @@ export const shoppingApi = createApi({
                 url: '/cart/reduce_from_cart',
                 method: 'POST',
                 body: body.productDetail,
-                // headers: body.header,
             }),
             invalidatesTags: ["Cart"],
         }),

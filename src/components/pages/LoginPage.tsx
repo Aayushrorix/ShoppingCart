@@ -3,7 +3,6 @@ import * as Yup from 'yup'
 import '../css/LoginPage.css'
 import { useNavigate } from 'react-router-dom'
 import { useLoginUserMutation } from '../../state/slices/ShoppingCartSlices'
-// import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 function LoginPage() {

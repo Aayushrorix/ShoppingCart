@@ -9,12 +9,7 @@ function Header() {
     const [logoutUser] = useLogoutUserMutation()
     const [cartCount, setCartCount] = useState<number>(0)
 
-    const { data:count } = useGetCartCountQuery(
-        // {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
-    );
+    const { data:count } = useGetCartCountQuery();
     
     useEffect(()=>{
         if(count){
@@ -23,12 +18,7 @@ function Header() {
     },[count])
 
     function userLogout(){
-        logoutUser(
-            // {
-            //     'Content-Type': 'application/json',
-            //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-            // }
-        )
+        logoutUser()
         localStorage.removeItem('token')
         navigate('/login')
     }

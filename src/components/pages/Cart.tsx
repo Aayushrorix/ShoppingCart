@@ -15,12 +15,7 @@ function Cart() {
     const [addToCart] = useAddToCartMutation()
     const [reduceFromCart] = useReduceFromCartMutation()
 
-    const { data:allcartProducts } = useGetCartProductsQuery(
-        // {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
-    );
+    const { data:allcartProducts } = useGetCartProductsQuery();
 
     const token = localStorage.getItem('token')
 
@@ -41,10 +36,6 @@ function Cart() {
     },[allcartProducts])
 
     function clickAddToCart(pid:string){
-        // const header = {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
         const productDetail = {
             pid: pid,
         }
@@ -52,10 +43,6 @@ function Cart() {
     }
 
     function clickReduceToCart(pid:string){
-        // const header = {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
         const productDetail = {
             pid: pid,
         }

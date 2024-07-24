@@ -3,7 +3,6 @@ import * as Yup from 'yup'
 import '../css/SignUpPage.css'
 import { useNavigate } from 'react-router-dom'
 import { useSignUpUserMutation } from '../../state/slices/ShoppingCartSlices'
-// import { useEffect, useState } from 'react'
 import { useEffect} from 'react'
 
 function SignUpPage() {

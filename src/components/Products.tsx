@@ -12,12 +12,7 @@ function Products() {
     const [cartCount, setCartCount] = useState<number>(0)
     const navigate = useNavigate()
 
-    const { data:count } = useGetCartCountQuery(
-        // {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
-    );
+    const { data:count } = useGetCartCountQuery();
     
     useEffect(()=>{
         if(count){
@@ -29,12 +24,7 @@ function Products() {
         }
     },[count])
 
-    const { data:allproducts } = useGetProductsQuery(
-        // {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
-    );
+    const { data:allproducts } = useGetProductsQuery();
 
     const [addToCart] = useAddToCartMutation()
     const [removeFromCart] = useRemoveFromCartMutation()
@@ -51,12 +41,7 @@ function Products() {
         }
     },[allproducts])
 
-    const { data:allcartProducts } = useGetCartProductsQuery(
-        // {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
-    );
+    const { data:allcartProducts } = useGetCartProductsQuery();
 
     useEffect(()=>{
         if(allcartProducts){
@@ -79,10 +64,6 @@ function Products() {
 
 
     function clickAddToCart(pid:string){
-        // const header = {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
         const productDetail = {
             pid: pid,
         }
@@ -90,10 +71,6 @@ function Products() {
     }
 
     function clickRemoveFormCart(pid:string){
-        // const header = {
-        //     'Content-Type': 'application/json',
-        //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // }
         const productDetail = {
             pid: pid,
         }
