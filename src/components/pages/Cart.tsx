@@ -71,17 +71,20 @@ function Cart() {
                                         <button onClick={()=>clickAddToCart(product.product.pid)}>+</button>
                                         <button onClick={()=>clickReduceToCart(product.product.pid)}>-</button>
                                     </div>
-                                    <div>Product Total : {product.productCart.product_total}</div>
+                                    <div >Product Total : {product.productCart.product_total}</div>
                                 </div>
                             ))}
                         </div>
-                        Total Price : {cartTotalPrice}
+                        {cartCount===0 &&
+                            <div className='div-product'>No Items Available in Cart</div>
+                        }
+                        <h3>
+                            <span  className='total-price'>Total Price : {cartTotalPrice}</span>
+                        </h3>
                     </>
                 }
 
-                {cartCount===0 &&
-                    <div>No Items Available in Cart</div>
-                }
+                
             </div>
         </>
     )

@@ -4,6 +4,16 @@
 
 }
 
+.home-tag{
+    font-family: Courier, monospace;
+    font: 20px bold;
+    /* font-style: oblique; */
+    background-color: rgb(234, 208, 240);
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
 .btn-logout{
     float: right;
     margin: 4px;

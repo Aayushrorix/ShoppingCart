@@ -38,7 +38,7 @@ function Header() {
 
     return (
         <div className="header-main">
-            <span onClick={()=>navigate('/')}>Home</span>
+            <button className='home-tag' onClick={()=>navigate('/')}>Home</button>
             <button className='btn-logout' onClick={userLogout}>Logout</button>
             {cartCount!==0 && 
             <span className='cart-count'>{cartCount}</span>
