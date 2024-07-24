@@ -4,13 +4,44 @@
     gap: 20px;
 }
 
+h2{
+    font-family: Courier, monospace;
+    margin-left: 30px;
+}
+
+h3{
+    /* font-family: Courier, monospace; */
+    font-family: Courier, monospace;
+}
+
+.price-tag{
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.div-img{
+    height: auto;
+    width: 100%;
+}
+
 .grid-item{
     text-align: center;
-    border: 1px solid black;
-    padding: auto;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 1.5rem;
+    padding: 10px;
+    margin: 30px;
+    background-color: rgb(219 227 229);
 }
 
 .product-img{
-    height: 150px;
-    width: 200px;
+    /* height: 150px;
+    width: 200px; */
+    /* height: fit-content;
+    width: 200px; */
+
+    border-radius: 5px;
+    height: auto !important;
+    width: 100% !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

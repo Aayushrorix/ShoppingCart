@@ -9,7 +9,7 @@ function Header() {
     const [logoutUser] = useLogoutUserMutation()
     const [cartCount, setCartCount] = useState<number>(0)
 
-    const { data } = useGetCartCountQuery(
+    const { data:count } = useGetCartCountQuery(
         {
             // Define your headers here
             'Content-Type': 'application/json',
@@ -19,10 +19,10 @@ function Header() {
     // console.log("data====> ",data)
     
     useEffect(()=>{
-        if(data){
-            setCartCount(data.data.cartCount)
+        if(count){
+            setCartCount(count.data.cartCount)
         }
-    },[data])
+    },[count])
 
     function userLogout(){
         logoutUser(
@@ -44,7 +44,10 @@ function Header() {
             <span className='cart-count'>{cartCount}</span>
             }
             <span>
-                <img className='cart-icon' src='src/assets/cart.png' onClick={()=>navigate('/cart')} alt='Cart'></img>
+                {/* <a href='http://localhost:5173/cart'>
+                <img className='cart-icon' src='src/assets/cart.png' alt='Cart'></img>
+                </a> */}
+                <img className='cart-icon' onClick={()=>navigate('/cart')} src='src/assets/cart.png' alt='Cart'></img>
             </span>
         </div>
     )

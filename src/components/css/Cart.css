@@ -12,9 +12,11 @@
     /* text-align: center; */
 }
 
-.product-img{
+.cart-product-img{
     height: 50px;
     width: 75px;
+    /* height: fit-content;
+    width: 200px; */
 }
 
 /* .grid-container{
