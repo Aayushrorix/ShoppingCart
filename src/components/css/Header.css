@@ -35,3 +35,17 @@
     height: 40px;
     float: right;
 }
+
+.profile-icon{
+    height: 35px;
+    float: right;
+    border-radius: 25px;
+    margin: 2px;
+}
+
+.profile-name{
+    float: right;
+    margin: 10px;
+    font-family: Courier, monospace;
+    
+}

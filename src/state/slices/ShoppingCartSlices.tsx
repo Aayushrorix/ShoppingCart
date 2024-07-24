@@ -110,8 +110,23 @@ export const shoppingApi = createApi({
             }),
             invalidatesTags: ["Cart"],
         }),
+        getProfile: builder.query<any,void>({
+            query: () => ({
+                url: '/auth/profile',
+                method: 'GET',
+            }),
+            providesTags: ["User"],
+        }),
+        updateProfile: builder.mutation<any,any>({
+            query: (body:any) => ({
+                url: '/auth/profile',
+                method: 'PATCH',
+                body: body,
+            }),
+            invalidatesTags: ["User"],
+        }),
 
     })
 })
 
-export const { useSignUpUserMutation , useLoginUserMutation, useLogoutUserMutation, useGetCartCountQuery, useGetProductsQuery, useAddToCartMutation, useRemoveFromCartMutation, useGetCartProductsQuery, useReduceFromCartMutation } = shoppingApi as any;
+export const { useSignUpUserMutation , useLoginUserMutation, useLogoutUserMutation, useGetCartCountQuery, useGetProductsQuery, useAddToCartMutation, useRemoveFromCartMutation, useGetCartProductsQuery, useReduceFromCartMutation, useGetProfileQuery, useUpdateProfileMutation } = shoppingApi as any;

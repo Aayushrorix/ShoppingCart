@@ -1,0 +1,66 @@
+.div-editprofile-main {
+    background-image: url('src/assets/cback.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height:96vh;
+    display: inline-block;
+    width: 100%;
+}
+
+.user-profile-icon{
+    margin: 0px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.profile-form{
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    background-color: rgba(9, 137, 84, 0.673);
+    padding: 50px;
+    border-radius: 20px;
+    margin: 3%;
+}
+
+.input-form-name-label{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: large;
+    font-weight:300;
+    color: rgb(4, 2, 10);
+}
+
+.input-box{
+    background-color: rgba(128, 208, 16, 0.153);
+    border:  0.5px solid black ;
+    border-radius: 5px;
+    padding: 10px 40px;
+}
+
+.update-btn{
+    background-color: rgba(196, 223, 23, 0.56);
+    border: none;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 8px 20px;
+    border-radius: 3px;
+}
+
+.update-btn:hover{
+    background-color: rgba(196, 223, 23, 0.677);
+    border: none;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-bottom: 25px;
+    padding: 8px 20px;
+    border-radius: 3px;
+}
+
+.update-btn:active{
+    background-color: rgba(196, 223, 23, 0.988);
+    border: none;
+    margin-top: 25px;
+    padding: 8px 20px;
+    border-radius: 3px;
+}
